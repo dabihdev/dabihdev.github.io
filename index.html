@@ -1,0 +1,789 @@
+
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dabih Isidori - Insegnante di Programmazione & Sviluppatore</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Fira+Code:wght@300;400;500;600&display=swap');
+        
+        :root {
+            --color-bg-primary: #1a1a1a;
+            --color-bg-secondary: #252525;
+            --color-text-primary: #f0f0f0;
+            --color-text-secondary: #b0b0b0;
+            --color-accent: #ff7e33;
+            --color-accent-hover: #ff6a14;
+            --color-accent-light: rgba(255, 126, 51, 0.1);
+        }
+        
+        body {
+            font-family: 'Fira Code', monospace;
+            scroll-behavior: smooth;
+            background-color: var(--color-bg-primary);
+            color: var(--color-text-primary);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #ff9f33 0%, #ff7e33 50%, #ff5e14 100%);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(255, 126, 51, 0.3);
+        }
+        
+        .section-divider {
+            height: 5px;
+            width: 70px;
+            background: linear-gradient(90deg, #ff7e33, #ff5e14);
+            border-radius: 5px;
+            margin: 0 auto;
+        }
+        
+        /* Cookie banner animation */
+        #cookie-banner {
+            transform: translateY(100%);
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        #cookie-banner.show {
+            transform: translateY(0);
+        }
+        
+        /* Cookie button */
+        #cookie-button {
+            transition: all 0.3s ease;
+        }
+        
+        #cookie-button:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--color-bg-secondary);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--color-accent);
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--color-accent-hover);
+        }
+        
+        /* Logo styling */
+        .logo {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+        }
+        
+        /* Profile image styling */
+        .profile-image {
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Improved responsive styles */
+        @media (max-width: 640px) {
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-text h2 {
+                font-size: 1.5rem;
+            }
+            
+            .skill-tags {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100">
+    <!-- Cookie Banner -->
+    <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-gray-800 shadow-lg z-50 p-4 border-t border-gray-700">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center justify-between">
+                <div class="mb-4 md:mb-0 md:mr-8">
+                    <p class="text-gray-300 text-sm md:text-base">
+                        <i class="fas fa-cookie-bite text-orange-500 mr-2"></i>
+                        Questo sito utilizza esclusivamente cookie tecnici necessari al funzionamento del sito. Non vengono raccolti cookie di terze parti o dati personali.
+                        <a href="#privacy-policy" class="text-orange-400 hover:underline ml-1">Maggiori informazioni</a>
+                    </p>
+                </div>
+                <button id="accept-cookies" class="bg-orange-500 text-white py-2 px-6 rounded-full hover:bg-orange-600 transition whitespace-nowrap text-sm md:text-base">
+                    Ho capito
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Cookie Button (to reopen banner) -->
+    <div id="cookie-button" class="fixed bottom-4 left-4 z-40 bg-gray-800 rounded-full p-3 shadow-lg border border-gray-700 cursor-pointer hidden">
+        <i class="fas fa-cookie-bite text-orange-500 text-xl"></i>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="bg-gray-800 shadow-md fixed w-full z-10">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="text-xl md:text-2xl font-bold logo"><span class="text-orange-500">Dabih</span><span class="text-white">Isidori</span></a>
+            <div class="hidden md:flex space-x-4 lg:space-x-8">
+                <a href="#home" class="text-gray-300 hover:text-orange-400 transition">Home</a>
+                <a href="#corsi" class="text-gray-300 hover:text-orange-400 transition">Corsi Python</a>
+                <a href="#siti-web" class="text-gray-300 hover:text-orange-400 transition">Siti Web</a>
+                <a href="#sviluppo" class="text-gray-300 hover:text-orange-400 transition">Sviluppo Software</a>
+                <a href="#about" class="text-gray-300 hover:text-orange-400 transition">Chi Sono</a>
+                <a href="#contatti" class="text-gray-300 hover:text-orange-400 transition">Contatti</a>
+            </div>
+            <button class="md:hidden text-gray-300" id="mobile-menu-button">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+        <!-- Mobile menu -->
+        <div class="md:hidden hidden bg-gray-800 w-full" id="mobile-menu">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="#home" class="text-gray-300 hover:text-orange-400 transition">Home</a>
+                <a href="#corsi" class="text-gray-300 hover:text-orange-400 transition">Corsi Python</a>
+                <a href="#siti-web" class="text-gray-300 hover:text-orange-400 transition">Siti Web</a>
+                <a href="#sviluppo" class="text-gray-300 hover:text-orange-400 transition">Sviluppo Software</a>
+                <a href="#about" class="text-gray-300 hover:text-orange-400 transition">Chi Sono</a>
+                <a href="#contatti" class="text-gray-300 hover:text-orange-400 transition">Contatti</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient pt-24 md:pt-28 lg:pt-32 pb-16 md:pb-20 lg:pb-24">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 text-gray-800 mb-10 md:mb-0 hero-text">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">Ciao, sono <span class="text-white">Dabih Isidori</span></h1>
+                    <h2 class="text-xl sm:text-2xl md:text-3xl font-semibold mb-6 text-gray-800">Insegnante di Programmazione & Sviluppatore</h2>
+                    <p class="text-base md:text-lg mb-8 text-gray-800">Trasformo le tue idee in codice e ti insegno a fare lo stesso. Specializzato in Python, web design e soluzioni software personalizzate.</p>
+                    <a href="#contatti" class="bg-gray-900 text-white font-semibold py-2 px-6 md:py-3 md:px-8 rounded-full hover:bg-gray-800 transition shadow-lg inline-block border border-orange-500">
+                        Prenota una Videochiamata Gratuita
+                    </a>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <svg class="w-full max-w-xs md:max-w-md" viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Computer Base -->
+                        <rect x="100" y="250" width="300" height="20" rx="2" fill="#333333"/>
+                        <rect x="180" y="270" width="140" height="10" rx="2" fill="#222222"/>
+                        <rect x="200" y="280" width="100" height="5" rx="2" fill="#333333"/>
+                        
+                        <!-- Monitor -->
+                        <rect x="120" y="100" width="260" height="150" rx="5" fill="#333333"/>
+                        <rect x="130" y="110" width="240" height="130" rx="2" fill="#1a1a1a"/>
+                        
+                        <!-- Code on Screen -->
+                        <text x="140" y="130" font-family="monospace" font-size="10" fill="#ff7e33">function hello() {</text>
+                        <text x="150" y="145" font-family="monospace" font-size="10" fill="#ffffff">  console.log("Hello");</text>
+                        <text x="140" y="160" font-family="monospace" font-size="10" fill="#ff7e33">}</text>
+                        <text x="140" y="180" font-family="monospace" font-size="10" fill="#8b5cf6">const</text>
+                        <text x="170" y="180" font-family="monospace" font-size="10" fill="#ffffff"> data = </text>
+                        <text x="210" y="180" font-family="monospace" font-size="10" fill="#10b981">[1, 2, 3];</text>
+                        <text x="140" y="195" font-family="monospace" font-size="10" fill="#ff7e33">for</text>
+                        <text x="160" y="195" font-family="monospace" font-size="10" fill="#ffffff">(let i = 0; i < 3; i++) {</text>
+                        <text x="150" y="210" font-family="monospace" font-size="10" fill="#ffffff">  hello();</text>
+                        <text x="140" y="225" font-family="monospace" font-size="10" fill="#ffffff">}</text>
+                        
+                        <!-- Cursor -->
+                        <rect x="210" y="223" width="5" height="10" fill="#ffffff">
+                            <animate attributeName="opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite" />
+                        </rect>
+                        
+                        <!-- Decorative Elements -->
+                        <circle cx="250" cy="90" r="3" fill="#ff7e33"/>
+                        <circle cx="400" cy="80" r="15" fill="#fcd34d" opacity="0.7"/>
+                        <circle cx="100" cy="320" r="15" fill="#fcd34d" opacity="0.7"/>
+                        
+                        <!-- Keyboard (optional) -->
+                        <rect x="150" y="320" width="200" height="30" rx="5" fill="#444444" opacity="0.6"/>
+                        <rect x="160" y="325" width="180" height="20" rx="2" fill="#333333" opacity="0.6"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Corsi Python Section -->
+    <section id="corsi" class="py-16 md:py-20 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 section-title">Corsi di Python</h2>
+                <div class="section-divider"></div>
+                <p class="text-gray-300 mt-6 max-w-2xl mx-auto text-sm md:text-base">Impara Python da zero o perfeziona le tue competenze con corsi personalizzati per ogni livello di esperienza.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                <!-- Corso Base -->
+                <div class="bg-gray-900 rounded-xl shadow-lg p-5 md:p-6 transition duration-300 card-hover border border-gray-700">
+                    <div class="bg-orange-900 bg-opacity-20 rounded-full w-14 h-14 md:w-16 md:h-16 flex items-center justify-center mb-5 md:mb-6">
+                        <i class="fas fa-baby text-orange-500 text-xl md:text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-white mb-3">Python per Principianti</h3>
+                    <p class="text-gray-300 mb-4 text-sm md:text-base">Parti da zero e costruisci solide basi di programmazione con Python. Imparerai sintassi, strutture dati e logica di programmazione.</p>
+                    <ul class="text-gray-300 mb-6 text-sm md:text-base">
+                        <li class="flex items-center mb-2"><i class="fas fa-check text-orange-500 mr-2"></i> Fondamenti di Python</li>
+                        <li class="flex items-center mb-2"><i class="fas fa-check text-orange-500 mr-2"></i> Strutture dati base</li>
+                        <li class="flex items-center"><i class="fas fa-check text-orange-500 mr-2"></i> Primi progetti pratici</li>
+                    </ul>
+                    <a href="#contatti" class="bg-orange-500 text-white py-2 px-5 md:px-6 rounded-full hover:bg-orange-600 transition inline-block text-sm md:text-base">Scopri di più</a>
+                </div>
+                
+                <!-- Corso Intermedio -->
+                <div class="bg-gray-900 rounded-xl shadow-lg p-5 md:p-6 transition duration-300 card-hover border border-gray-700">
+                    <div class="bg-orange-900 bg-opacity-20 rounded-full w-14 h-14 md:w-16 md:h-16 flex items-center justify-center mb-5 md:mb-6">
+                        <i class="fas fa-code-branch text-orange-500 text-xl md:text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-white mb-3">Python Intermedio</h3>
+                    <p class="text-gray-300 mb-4 text-sm md:text-base">Approfondisci le tue conoscenze con concetti avanzati e librerie popolari per sviluppare applicazioni più complesse.</p>
+                    <ul class="text-gray-300 mb-6 text-sm md:text-base">
+                        <li class="flex items-center mb-2"><i class="fas fa-check text-orange-500 mr-2"></i> OOP in Python</li>
+                        <li class="flex items-center mb-2"><i class="fas fa-check text-orange-500 mr-2"></i> Gestione file e database</li>
+                        <li class="flex items-center"><i class="fas fa-check text-orange-500 mr-2"></i> Librerie standard</li>
+                    </ul>
+                    <a href="#contatti" class="bg-orange-500 text-white py-2 px-5 md:px-6 rounded-full hover:bg-orange-600 transition inline-block text-sm md:text-base">Scopri di più</a>
+                </div>
+                
+                <!-- Corso Avanzato -->
+                <div class="bg-gray-900 rounded-xl shadow-lg p-5 md:p-6 transition duration-300 card-hover border border-gray-700">
+                    <div class="bg-orange-900 bg-opacity-20 rounded-full w-14 h-14 md:w-16 md:h-16 flex items-center justify-center mb-5 md:mb-6">
+                        <i class="fas fa-rocket text-orange-500 text-xl md:text-2xl"></i>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold text-white mb-3">Python Avanzato</h3>
+                    <p class="text-gray-300 mb-4 text-sm md:text-base">Padroneggia tecniche avanzate e specializzati in data science, machine learning o sviluppo applicazioni con Python.</p>
+                    <ul class="text-gray-300 mb-6 text-sm md:text-base">
+                        <li class="flex items-center mb-2"><i class="fas fa-check text-orange-500 mr-2"></i> Data Science con Pandas</li>
+                        <li class="flex items-center mb-2"><i class="fas fa-check text-orange-500 mr-2"></i> Basi di Machine Learning</li>
+                        <li class="flex items-center"><i class="fas fa-check text-orange-500 mr-2"></i> Sviluppo Applicazioni</li>
+                    </ul>
+                    <a href="#contatti" class="bg-orange-500 text-white py-2 px-5 md:px-6 rounded-full hover:bg-orange-600 transition inline-block text-sm md:text-base">Scopri di più</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Siti Web Section -->
+    <section id="siti-web" class="py-16 md:py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 section-title">Creazione e Gestione Siti Web</h2>
+                <div class="section-divider"></div>
+                <p class="text-gray-300 mt-6 max-w-2xl mx-auto text-sm md:text-base">Realizzo siti web statici professionali, responsive e ottimizzati per i motori di ricerca, adatti alle tue esigenze.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
+                <div class="bg-gray-800 rounded-xl shadow-md p-5 md:p-6 transition duration-300 card-hover border border-gray-700">
+                    <div class="bg-orange-900 bg-opacity-20 rounded-full w-14 h-14 md:w-16 md:h-16 flex items-center justify-center mb-5 md:mb-6">
+                        <i class="fas fa-paint-brush text-orange-500 text-xl md:text-2xl"></i>
+                    </div>
+                    <h4 class="text-base md:text-lg font-semibold text-white mb-3">Design Personalizzato</h4>
+                    <p class="text-gray-300 text-sm md:text-base">Siti web unici e su misura per rappresentare al meglio la tua attività o il tuo brand.</p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-xl shadow-md p-5 md:p-6 transition duration-300 card-hover border border-gray-700">
+                    <div class="bg-orange-900 bg-opacity-20 rounded-full w-14 h-14 md:w-16 md:h-16 flex items-center justify-center mb-5 md:mb-6">
+                        <i class="fas fa-mobile-alt text-orange-500 text-xl md:text-2xl"></i>
+                    </div>
+                    <h4 class="text-base md:text-lg font-semibold text-white mb-3">Responsive Design</h4>
+                    <p class="text-gray-300 text-sm md:text-base">Siti perfettamente funzionanti su qualsiasi dispositivo, dal desktop allo smartphone.</p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-xl shadow-md p-5 md:p-6 transition duration-300 card-hover border border-gray-700">
+                    <div class="bg-orange-900 bg-opacity-20 rounded-full w-14 h-14 md:w-16 md:h-16 flex items-center justify-center mb-5 md:mb-6">
+                        <i class="fas fa-search text-orange-500 text-xl md:text-2xl"></i>
+                    </div>
+                    <h4 class="text-base md:text-lg font-semibold text-white mb-3">SEO Ottimizzato</h4>
+                    <p class="text-gray-300 text-sm md:text-base">Ottimizzazione per i motori di ricerca per migliorare la visibilità online.</p>
+                </div>
+                
+                <div class="bg-gray-800 rounded-xl shadow-md p-5 md:p-6 transition duration-300 card-hover border border-gray-700">
+                    <div class="bg-orange-900 bg-opacity-20 rounded-full w-14 h-14 md:w-16 md:h-16 flex items-center justify-center mb-5 md:mb-6">
+                        <i class="fas fa-server text-orange-500 text-xl md:text-2xl"></i>
+                    </div>
+                    <h4 class="text-base md:text-lg font-semibold text-white mb-3">Manutenzione e Supporto</h4>
+                    <p class="text-gray-300 text-sm md:text-base">Assistenza, aggiornamenti e miglioramenti per mantenere il tuo sito sempre efficiente.</p>
+                </div>
+            </div>
+            
+            <div class="mt-10 md:mt-12 text-center">
+                <a href="#contatti" class="bg-orange-500 text-white py-2 px-6 md:py-3 md:px-8 rounded-full hover:bg-orange-600 transition shadow-md inline-block text-sm md:text-base">Richiedi Preventivo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sviluppo Software Section -->
+    <section id="sviluppo" class="py-16 md:py-20 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 section-title">Sviluppo Software e Assistenza Python</h2>
+                <div class="section-divider"></div>
+                <p class="text-gray-300 mt-6 max-w-2xl mx-auto text-sm md:text-base">Sviluppo soluzioni software personalizzate e offro assistenza tecnica per progetti Python di ogni dimensione.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+                <div class="bg-gray-900 rounded-xl p-6 md:p-8 shadow-md border border-gray-700">
+                    <h3 class="text-xl md:text-2xl font-bold text-white mb-5 md:mb-6">Sviluppo Software Personalizzato</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-500 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold text-white text-base md:text-lg">Automazione dei Processi</h4>
+                                <p class="text-gray-300 text-sm md:text-base">Script e programmi per automatizzare attività ripetitive e aumentare la produttività.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-500 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold text-white text-base md:text-lg">Analisi Dati e Reporting</h4>
+                                <p class="text-gray-300 text-sm md:text-base">Elaborazione, visualizzazione e analisi dei dati aziendali.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-gray-900 rounded-xl p-6 md:p-8 shadow-md border border-gray-700">
+                    <h3 class="text-xl md:text-2xl font-bold text-white mb-5 md:mb-6">Assistenza e Consulenza Python</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-500 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold text-white text-base md:text-lg">Debug e Ottimizzazione</h4>
+                                <p class="text-gray-300 text-sm md:text-base">Risoluzione di problemi e miglioramento delle performance del codice esistente.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-500 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold text-white text-base md:text-lg">Mentoring e Formazione</h4>
+                                <p class="text-gray-300 text-sm md:text-base">Supporto personalizzato per lavoratori singoli e team che lavorano con Python.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-orange-500 mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold text-white text-base md:text-lg">Consulenza Tecnica</h4>
+                                <p class="text-gray-300 text-sm md:text-base">Consigli su architettura, librerie e best practices per i tuoi progetti Python.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-10 md:mt-12 text-center">
+                <a href="#contatti" class="bg-orange-500 text-white py-2 px-6 md:py-3 md:px-8 rounded-full hover:bg-orange-600 transition shadow-md inline-block text-sm md:text-base">Parliamo del tuo Progetto</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="py-16 md:py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 section-title">Chi Sono</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-10 md:mb-0">
+                    <!-- Profile Image Container -->
+                    <div class="bg-gradient-to-br from-orange-500 to-orange-600 rounded-full w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 mx-auto flex items-center justify-center shadow-xl profile-image">
+                        <!-- 
+                            PER SOSTITUIRE CON LA TUA FOTO:
+                            1. Rimuovi il tag SVG qui sotto
+                            2. Inserisci un tag <img> come questo:
+                            <img src="percorso-alla-tua-foto.jpg" alt="NomeCognome" class="rounded-full">
+                        -->
+                        <img src="./img/foto_profilo.jpg" alt="FotoProfilo" class="rounded-full">
+                    </div>
+                </div>
+                <div class="md:w-2/3 md:pl-8 lg:pl-12">
+                    <h3 class="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4 text-center md:text-left">Dabih Isidori</h3>
+                    <h4 class="text-lg md:text-xl text-orange-400 mb-4 md:mb-6 text-center md:text-left">Insegnante di Programmazione & Sviluppatore Software</h4>
+                    <p class="text-gray-300 mb-4 md:mb-6 text-sm md:text-base">Sono un appassionato sviluppatore software con oltre X anni di esperienza nel settore. La mia specializzazione è Python e lo sviluppo web, con una particolare attenzione alla creazione di soluzioni eleganti e funzionali.</p>
+                    <p class="text-gray-300 mb-4 md:mb-6 text-sm md:text-base">Ho lavorato con aziende di diverse dimensioni, aiutandole a trasformare le loro idee in prodotti digitali di successo. La mia passione per l'insegnamento mi ha portato a condividere le mie conoscenze con centinaia di studenti, guidandoli nel loro percorso di apprendimento della programmazione.</p>
+                    <p class="text-gray-300 mb-6 md:mb-8 text-sm md:text-base">Il mio approccio combina solide competenze tecniche con una forte attenzione alla comunicazione e alla comprensione delle esigenze del cliente o dello studente.</p>
+                    
+                    <div class="flex flex-wrap gap-3 md:gap-4 skill-tags justify-center md:justify-start">
+                        <div class="bg-gray-800 rounded-full py-1 px-4 md:py-2 md:px-6 shadow-md border border-gray-700">
+                            <span class="text-orange-400 font-semibold text-sm md:text-base">Python</span>
+                        </div>
+                        <div class="bg-gray-800 rounded-full py-1 px-4 md:py-2 md:px-6 shadow-md border border-gray-700">
+                            <span class="text-orange-400 font-semibold text-sm md:text-base">Data Science</span>
+                        </div>
+                        <div class="bg-gray-800 rounded-full py-1 px-4 md:py-2 md:px-6 shadow-md border border-gray-700">
+                            <span class="text-orange-400 font-semibold text-sm md:text-base">E-Tutoring</span>
+                        </div>
+                        <div class="bg-gray-800 rounded-full py-1 px-4 md:py-2 md:px-6 shadow-md border border-gray-700">
+                            <span class="text-orange-400 font-semibold text-sm md:text-base">HTML/CSS/JS</span>
+                        </div>
+                        <div class="bg-gray-800 rounded-full py-1 px-4 md:py-2 md:px-6 shadow-md border border-gray-700">
+                            <span class="text-orange-400 font-semibold text-sm md:text-base">Web/UI Design</span>
+                        </div>
+                        <div class="bg-gray-800 rounded-full py-1 px-4 md:py-2 md:px-6 shadow-md border border-gray-700">
+                            <span class="text-orange-400 font-semibold text-sm md:text-base">C/Arduino</span>
+                        </div>
+                        <div class="bg-gray-800 rounded-full py-1 px-4 md:py-2 md:px-6 shadow-md border border-gray-700">
+                            <span class="text-orange-400 font-semibold text-sm md:text-base">Git/Controllo di versione</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contatti Section -->
+    <section id="contatti" class="py-16 md:py-20 bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 section-title">Contattami</h2>
+                <div class="section-divider"></div>
+                <p class="text-gray-300 mt-6 max-w-2xl mx-auto text-sm md:text-base">Hai un progetto in mente o vuoi saperne di più sui miei servizi? Contattami e risponderò al più presto.</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gray-900 rounded-xl p-6 md:p-8 shadow-md border border-gray-700">
+                    <div class="text-center mb-8">
+                        <h3 class="text-xl md:text-2xl font-bold text-white mb-4">Prenota una Consulenza Gratuita</h3>
+                        <div class="bg-gray-800 rounded-lg p-4 md:p-6 mb-6 border border-gray-700">
+                            <p class="text-gray-300 mb-4 text-sm md:text-base">Inviami un'email per parlarmi del tuo progetto o problema. Ti risponderò entro 24 ore con un link ad una classe virtuale dove potremo discutere in dettaglio durante una <span class="font-bold text-orange-400">consulenza gratuita di 20 minuti</span>.</p>
+                            <p class="text-gray-300 text-sm md:text-base">Questa è un'opportunità per conoscerci meglio e capire come posso aiutarti a raggiungere i tuoi obiettivi, sia che tu stia cercando di imparare a programmare, sviluppare un sito web o creare una soluzione software personalizzata.</p>
+                        </div>
+                        <a href="mailto:tuonome@example.com" class="bg-orange-500 text-white py-2 px-6 md:py-3 md:px-8 rounded-full hover:bg-orange-600 transition shadow-md inline-block text-sm md:text-base">
+                            <i class="fas fa-envelope mr-2"></i>Inviami un'Email
+                        </a>
+                    </div>
+                    
+                    <!-- INIZIO: Sezione contatti -->
+                    <div class="flex justify-center mt-10 md:mt-12">
+                        <!-- Email (attualmente visibile) -->
+                        <div class="bg-gray-800 rounded-lg p-4 md:p-6 shadow-sm text-center border border-gray-700 max-w-sm">
+                            <div class="bg-orange-900 bg-opacity-20 rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center mx-auto mb-3 md:mb-4">
+                                <i class="fas fa-envelope text-orange-500 text-xl md:text-2xl"></i>
+                            </div>
+                            <h4 class="font-semibold text-white mb-2 text-base md:text-lg">Email</h4>
+                            <a href="mailto:tuonome@example.com" class="text-orange-400 hover:underline text-sm md:text-base">tuonome@example.com</a>
+                        </div>
+                        
+                        <!-- 
+                        COME AGGIUNGERE TELEFONO:
+                        Copia e incolla questo blocco di codice dopo il div dell'email qui sopra
+                        
+                        <div class="bg-gray-800 rounded-lg p-4 md:p-6 shadow-sm text-center border border-gray-700 max-w-sm mx-4">
+                            <div class="bg-orange-900 bg-opacity-20 rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center mx-auto mb-3 md:mb-4">
+                                <i class="fas fa-phone text-orange-500 text-xl md:text-2xl"></i>
+                            </div>
+                            <h4 class="font-semibold text-white mb-2 text-base md:text-lg">Telefono</h4>
+                            <a href="tel:+391234567890" class="text-orange-400 hover:underline text-sm md:text-base">+39 123 456 7890</a>
+                        </div>
+                        -->
+                        
+                        <!-- 
+                        COME AGGIUNGERE SEDE:
+                        Copia e incolla questo blocco di codice dopo il div dell'email (o del telefono se lo hai aggiunto)
+                        
+                        <div class="bg-gray-800 rounded-lg p-4 md:p-6 shadow-sm text-center border border-gray-700 max-w-sm">
+                            <div class="bg-orange-900 bg-opacity-20 rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center mx-auto mb-3 md:mb-4">
+                                <i class="fas fa-map-marker-alt text-orange-500 text-xl md:text-2xl"></i>
+                            </div>
+                            <h4 class="font-semibold text-white mb-2 text-base md:text-lg">Sede</h4>
+                            <p class="text-gray-300 text-sm md:text-base">La tua città, Italia</p>
+                        </div>
+                        -->
+                        
+                        <!-- NOTA: Quando aggiungi più elementi di contatto, modifica la classe del div contenitore da "flex justify-center" a "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6" -->
+                    </div>
+                    <!-- FINE: Sezione contatti -->
+                    
+                    <!-- INIZIO: Sezione social -->
+                    <div class="mt-10 md:mt-12 text-center">
+                        <h4 class="font-semibold text-white mb-4 text-base md:text-lg">Seguimi su GitHub</h4>
+                        <div class="flex justify-center">
+                            <!-- GitHub (attualmente visibile) -->
+                            <a href="#" class="bg-gray-800 hover:bg-gray-700 text-orange-500 rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition border border-gray-700">
+                                <i class="fab fa-github text-lg md:text-xl"></i>
+                            </a>
+                            
+                            <!-- 
+                            COME AGGIUNGERE ALTRI SOCIAL:
+                            Copia e incolla uno di questi blocchi dopo l'icona di GitHub qui sopra
+                            
+                            LinkedIn:
+                            <a href="#" class="bg-gray-800 hover:bg-gray-700 text-orange-500 rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition border border-gray-700 ml-3 md:ml-4">
+                                <i class="fab fa-linkedin-in text-lg md:text-xl"></i>
+                            </a>
+                            
+                            Twitter:
+                            <a href="#" class="bg-gray-800 hover:bg-gray-700 text-orange-500 rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition border border-gray-700 ml-3 md:ml-4">
+                                <i class="fab fa-twitter text-lg md:text-xl"></i>
+                            </a>
+                            
+                            Instagram:
+                            <a href="#" class="bg-gray-800 hover:bg-gray-700 text-orange-500 rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition border border-gray-700 ml-3 md:ml-4">
+                                <i class="fab fa-instagram text-lg md:text-xl"></i>
+                            </a>
+                            
+                            YouTube:
+                            <a href="#" class="bg-gray-800 hover:bg-gray-700 text-orange-500 rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition border border-gray-700 ml-3 md:ml-4">
+                                <i class="fab fa-youtube text-lg md:text-xl"></i>
+                            </a>
+                            
+                            Medium:
+                            <a href="#" class="bg-gray-800 hover:bg-gray-700 text-orange-500 rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition border border-gray-700 ml-3 md:ml-4">
+                                <i class="fab fa-medium-m text-lg md:text-xl"></i>
+                            </a>
+                            
+                            NOTA: Quando aggiungi più social, ricordati di cambiare anche il titolo da "Seguimi su GitHub" a "Seguimi sui Social"
+                            -->
+                        </div>
+                    </div>
+                    <!-- FINE: Sezione social -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Privacy Policy Section -->
+    <section id="privacy-policy" class="py-16 md:py-20 bg-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12 md:mb-16">
+                <h2 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 section-title">Privacy Policy</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="max-w-4xl mx-auto bg-gray-800 rounded-xl p-6 md:p-8 shadow-md border border-gray-700">
+                <div class="prose max-w-none">
+                    <h3 class="text-xl md:text-2xl font-bold text-white mb-5 md:mb-6">Informativa sui Cookie</h3>
+                    
+                    <p class="text-gray-300 mb-4 text-sm md:text-base">Questo sito web utilizza esclusivamente cookie tecnici necessari per il corretto funzionamento del sito e per migliorare la tua esperienza di navigazione. Non vengono utilizzati cookie di profilazione o di terze parti, né vengono raccolti dati personali degli utenti.</p>
+                    
+                    <h4 class="text-lg md:text-xl font-semibold text-white mt-6 md:mt-8 mb-3 md:mb-4">Cosa sono i cookie?</h4>
+                    <p class="text-gray-300 mb-4 text-sm md:text-base">I cookie sono piccoli file di testo che i siti visitati dagli utenti inviano ai loro terminali, dove vengono memorizzati per essere poi ritrasmessi agli stessi siti in occasione di visite successive. I cookie sono utilizzati per diverse finalità, hanno caratteristiche diverse, e possono essere utilizzati sia dal titolare del sito che si sta visitando, sia da terze parti.</p>
+                    
+                    <h4 class="text-lg md:text-xl font-semibold text-white mt-6 md:mt-8 mb-3 md:mb-4">Cookie tecnici utilizzati da questo sito</h4>
+                    <p class="text-gray-300 mb-4 text-sm md:text-base">Questo sito utilizza esclusivamente cookie tecnici, rispetto ai quali non è richiesto alcun consenso da parte dell'utente. Questi cookie sono strettamente necessari per garantire il corretto funzionamento del sito web e per fornire i servizi richiesti. Senza questi cookie, alcune funzionalità del sito potrebbero non essere disponibili.</p>
+                    
+                    <p class="text-gray-300 mb-4 text-sm md:text-base">I cookie tecnici utilizzati da questo sito includono:</p>
+                    <ul class="list-disc pl-6 mb-6 text-gray-300 text-sm md:text-base">
+                        <li class="mb-2">Cookie di sessione: sono temporanei e vengono eliminati quando l'utente chiude il browser.</li>
+                        <li class="mb-2">Cookie di funzionalità: permettono al sito di ricordare le scelte effettuate dall'utente per migliorare la sua esperienza.</li>
+                    </ul>
+                    
+                    <h4 class="text-lg md:text-xl font-semibold text-white mt-6 md:mt-8 mb-3 md:mb-4">Come gestire i cookie</h4>
+                    <p class="text-gray-300 mb-4 text-sm md:text-base">È possibile disabilitare i cookie modificando le impostazioni del browser. Tuttavia, si prega di notare che la disabilitazione dei cookie tecnici potrebbe compromettere il corretto funzionamento di alcune parti del sito web.</p>
+                    
+                    <p class="text-gray-300 mb-4 text-sm md:text-base">La maggior parte dei browser permette di gestire le preferenze relative ai cookie. È possibile impostare il proprio browser per rifiutare i cookie o per eliminare solo alcuni di essi. Allo stesso modo in cui si disabilita l'utilizzo dei cookie, è possibile disabilitare altre tecnologie simili.</p>
+                    
+                    <h4 class="text-lg md:text-xl font-semibold text-white mt-6 md:mt-8 mb-3 md:mb-4">Dati personali</h4>
+                    <p class="text-gray-300 mb-4 text-sm md:text-base">Questo sito non raccoglie dati personali degli utenti, ad eccezione di quelli forniti volontariamente tramite i form di contatto o l'invio di email. Questi dati vengono utilizzati esclusivamente per rispondere alle richieste degli utenti e non vengono condivisi con terze parti.</p>
+                    
+                    <h4 class="text-lg md:text-xl font-semibold text-white mt-6 md:mt-8 mb-3 md:mb-4">Aggiornamenti della Privacy Policy</h4>
+                    <p class="text-gray-300 text-sm md:text-base">La presente Privacy Policy può essere soggetta ad aggiornamenti. Gli utenti sono pertanto invitati a verificarne periodicamente il contenuto.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-10 md:py-12 border-t border-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between">
+                <div class="mb-8 md:mb-0">
+                    <h3 class="text-xl md:text-2xl font-bold mb-4 logo"><span class="text-orange-500">Nome</span><span class="text-white">Cognome</span></h3>
+                    <p class="text-gray-400 max-w-xs text-sm md:text-base">Insegnante di programmazione e sviluppatore software specializzato in Python e sviluppo web.</p>
+                </div>
+                
+                <div class="mb-8 md:mb-0">
+                    <h4 class="text-base md:text-lg font-semibold mb-4 text-white">Link Rapidi</h4>
+                    <ul class="space-y-2 text-sm md:text-base">
+                        <li><a href="#home" class="text-gray-400 hover:text-orange-400 transition">Home</a></li>
+                        <li><a href="#corsi" class="text-gray-400 hover:text-orange-400 transition">Corsi Python</a></li>
+                        <li><a href="#siti-web" class="text-gray-400 hover:text-orange-400 transition">Siti Web</a></li>
+                        <li><a href="#sviluppo" class="text-gray-400 hover:text-orange-400 transition">Sviluppo Software</a></li>
+                        <li><a href="#about" class="text-gray-400 hover:text-orange-400 transition">Chi Sono</a></li>
+                        <li><a href="#contatti" class="text-gray-400 hover:text-orange-400 transition">Contatti</a></li>
+                        <li><a href="#privacy-policy" class="text-gray-400 hover:text-orange-400 transition">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-base md:text-lg font-semibold mb-4 text-white">Contatti</h4>
+                    <ul class="space-y-2 text-sm md:text-base">
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-2 text-orange-500"></i>
+                            <span class="text-gray-400">tuonome@example.com</span>
+                        </li>
+                        <!-- 
+                        COME AGGIUNGERE TELEFONO NEL FOOTER:
+                        Copia e incolla questo blocco di codice dopo il li dell'email qui sopra
+                        
+                        <li class="flex items-center">
+                            <i class="fas fa-phone mr-2 text-orange-500"></i>
+                            <span class="text-gray-400">+39 123 456 7890</span>
+                        </li>
+                        -->
+                        
+                        <!-- 
+                        COME AGGIUNGERE SEDE NEL FOOTER:
+                        Copia e incolla questo blocco di codice dopo il li dell'email (o del telefono se lo hai aggiunto)
+                        
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-2 text-orange-500"></i>
+                            <span class="text-gray-400">La tua città, Italia</span>
+                        </li>
+                        -->
+                    </ul>
+                    <div class="flex mt-4">
+                        <a href="#" class="text-gray-400 hover:text-orange-400 transition">
+                            <i class="fab fa-github mr-2"></i>GitHub
+                        </a>
+                        <!-- 
+                        COME AGGIUNGERE ALTRI SOCIAL NEL FOOTER:
+                        Copia e incolla uno di questi blocchi dopo il link di GitHub qui sopra
+                        
+                        LinkedIn:
+                        <a href="#" class="text-gray-400 hover:text-orange-400 transition ml-4">
+                            <i class="fab fa-linkedin-in mr-2"></i>LinkedIn
+                        </a>
+                        
+                        Twitter:
+                        <a href="#" class="text-gray-400 hover:text-orange-400 transition ml-4">
+                            <i class="fab fa-twitter mr-2"></i>Twitter
+                        </a>
+                        
+                        Instagram:
+                        <a href="#" class="text-gray-400 hover:text-orange-400 transition ml-4">
+                            <i class="fab fa-instagram mr-2"></i>Instagram
+                        </a>
+                        
+                        YouTube:
+                        <a href="#" class="text-gray-400 hover:text-orange-400 transition ml-4">
+                            <i class="fab fa-youtube mr-2"></i>YouTube
+                        </a>
+                        
+                        Medium:
+                        <a href="#" class="text-gray-400 hover:text-orange-400 transition ml-4">
+                            <i class="fab fa-medium-m mr-2"></i>Medium
+                        </a>
+                        -->
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 md:mt-10 pt-6 text-center">
+                <p class="text-gray-400 text-sm md:text-base">&copy; 2023 NomeCognome. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    // Adjust offset based on screen size
+                    const offset = window.innerWidth < 768 ? 60 : 80;
+                    
+                    window.scrollTo({
+                        top: targetElement.offsetTop - offset,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Cookie banner functionality with animation
+        const cookieBanner = document.getElementById('cookie-banner');
+        const acceptCookiesBtn = document.getElementById('accept-cookies');
+        const cookieButton = document.getElementById('cookie-button');
+        
+        // Function to show cookie banner with animation
+        function showCookieBanner() {
+            cookieBanner.classList.add('show');
+            cookieButton.classList.add('hidden');
+        }
+        
+        // Function to hide cookie banner with animation
+        function hideCookieBanner() {
+            cookieBanner.classList.remove('show');
+            // Wait for animation to complete before setting display to none
+            setTimeout(() => {
+                cookieButton.classList.remove('hidden');
+            }, 500);
+        }
+        
+        // Check if user has already accepted cookies
+        if (!localStorage.getItem('cookiesAccepted')) {
+            showCookieBanner();
+        } else {
+            cookieBanner.classList.remove('show');
+            cookieButton.classList.remove('hidden');
+        }
+        
+        acceptCookiesBtn.addEventListener('click', () => {
+            localStorage.setItem('cookiesAccepted', 'true');
+            hideCookieBanner();
+        });
+        
+        // Cookie button to reopen banner
+        cookieButton.addEventListener('click', () => {
+            showCookieBanner();
+        });
+        
+        // Fix for mobile viewport height issues
+        function setMobileHeight() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        
+        setMobileHeight();
+        window.addEventListener('resize', setMobileHeight);
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'95b7bc012756edcc',t:'MTc1MTg5NTQyNC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
