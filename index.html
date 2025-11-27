@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="it">
 <head>
@@ -127,7 +125,6 @@
     </style>
 </head>
 <body class="bg-gray-900 text-gray-100">
-    <!-- Cookie Banner -->
     <div id="cookie-banner" class="fixed bottom-0 left-0 right-0 bg-gray-800 shadow-lg z-50 p-4 border-t border-gray-700">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row items-center justify-between">
@@ -145,12 +142,10 @@
         </div>
     </div>
     
-    <!-- Cookie Button (to reopen banner) -->
     <div id="cookie-button" class="fixed bottom-4 left-4 z-40 bg-gray-800 rounded-full p-3 shadow-lg border border-gray-700 cursor-pointer hidden">
         <i class="fas fa-cookie-bite text-orange-500 text-xl"></i>
     </div>
 
-    <!-- Navbar -->
     <nav class="bg-gray-800 shadow-md fixed w-full z-10">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <a href="#" class="text-xl md:text-2xl font-bold logo"><span class="text-orange-500">Dabih</span><span class="text-white">Dev</span> <i class="fas fa-terminal"></i></a>
@@ -166,7 +161,6 @@
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </div>
-        <!-- Mobile menu -->
         <div class="md:hidden hidden bg-gray-800 w-full" id="mobile-menu">
             <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
                 <a href="#home" class="text-gray-300 hover:text-orange-400 transition">Home</a>
@@ -179,7 +173,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section id="home" class="hero-gradient pt-24 md:pt-28 lg:pt-32 pb-16 md:pb-20 lg:pb-24">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row items-center">
@@ -188,21 +181,18 @@
                     <h2 class="text-xl sm:text-2xl md:text-3xl font-semibold mb-6 text-gray-800">Insegnante di Programmazione & Sviluppatore</h2>
                     <p class="text-base md:text-lg mb-8 text-gray-800">Trasformo la tua fantasia in programmi e siti internet, e ti insegno a fare lo stesso. Specializzato in Python, web design e soluzioni software personalizzate.</p>
                     <a href="#contatti" class="bg-gray-900 text-white font-semibold py-2 px-6 md:py-3 md:px-8 rounded-full hover:bg-gray-800 transition shadow-lg inline-block border border-orange-500">
-                        Prenota una Videochiamata Gratuita
+                        Prenota una Videochiamata Gratuita <i class="fab fa-whatsapp ml-2 text-green-400"></i> <i class="fas fa-envelope ml-2 text-orange-500"></i>
                     </a>
                 </div>
                 <div class="md:w-1/2 flex justify-center">
                     <svg class="w-full max-w-xs md:max-w-md" viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Computer Base -->
                         <rect x="100" y="250" width="300" height="20" rx="2" fill="#333333"/>
                         <rect x="180" y="270" width="140" height="10" rx="2" fill="#222222"/>
                         <rect x="200" y="280" width="100" height="5" rx="2" fill="#333333"/>
                         
-                        <!-- Monitor -->
                         <rect x="120" y="100" width="260" height="150" rx="5" fill="#333333"/>
                         <rect x="130" y="110" width="240" height="130" rx="2" fill="#1a1a1a"/>
                         
-                        <!-- Code on Screen -->
                         <text x="140" y="130" font-family="monospace" font-size="10" fill="#ff7e33">function hello() {</text>
                         <text x="150" y="145" font-family="monospace" font-size="10" fill="#ffffff">  console.log("Hello");</text>
                         <text x="140" y="160" font-family="monospace" font-size="10" fill="#ff7e33">}</text>
@@ -214,17 +204,14 @@
                         <text x="150" y="210" font-family="monospace" font-size="10" fill="#ffffff">  hello();</text>
                         <text x="140" y="225" font-family="monospace" font-size="10" fill="#ffffff">}</text>
                         
-                        <!-- Cursor -->
                         <rect x="210" y="223" width="5" height="10" fill="#ffffff">
                             <animate attributeName="opacity" values="0;1;0" dur="1.5s" repeatCount="indefinite" />
                         </rect>
                         
-                        <!-- Decorative Elements -->
                         <circle cx="250" cy="90" r="3" fill="#ff7e33"/>
                         <circle cx="400" cy="80" r="15" fill="#fcd34d" opacity="0.7"/>
                         <circle cx="100" cy="320" r="15" fill="#fcd34d" opacity="0.7"/>
                         
-                        <!-- Keyboard (optional) -->
                         <rect x="150" y="320" width="200" height="30" rx="5" fill="#444444" opacity="0.6"/>
                         <rect x="160" y="325" width="180" height="20" rx="2" fill="#333333" opacity="0.6"/>
                     </svg>
@@ -233,7 +220,6 @@
         </div>
     </section>
 
-    <!-- Corsi Python Section -->
     <section id="corsi" class="py-16 md:py-20 bg-gray-800">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12 md:mb-16">
@@ -244,7 +230,6 @@
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                <!-- Corso Base -->
                 <div class="bg-gray-900 rounded-xl shadow-lg p-5 md:p-6 transition duration-300 card-hover border border-gray-700">
                     <div class="bg-orange-900 bg-opacity-20 rounded-full w-14 h-14 md:w-16 md:h-16 flex items-center justify-center mb-5 md:mb-6">
                         <i class="fas fa-baby text-orange-500 text-xl md:text-2xl"></i>
@@ -259,7 +244,6 @@
                     <a href="#contatti" class="bg-orange-500 text-white py-2 px-5 md:px-6 rounded-full hover:bg-orange-600 transition inline-block text-sm md:text-base">Scopri di più</a>
                 </div>
                 
-                <!-- Corso Intermedio -->
                 <div class="bg-gray-900 rounded-xl shadow-lg p-5 md:p-6 transition duration-300 card-hover border border-gray-700">
                     <div class="bg-orange-900 bg-opacity-20 rounded-full w-14 h-14 md:w-16 md:h-16 flex items-center justify-center mb-5 md:mb-6">
                         <i class="fas fa-code-branch text-orange-500 text-xl md:text-2xl"></i>
@@ -274,7 +258,6 @@
                     <a href="#contatti" class="bg-orange-500 text-white py-2 px-5 md:px-6 rounded-full hover:bg-orange-600 transition inline-block text-sm md:text-base">Scopri di più</a>
                 </div>
                 
-                <!-- Corso Avanzato -->
                 <div class="bg-gray-900 rounded-xl shadow-lg p-5 md:p-6 transition duration-300 card-hover border border-gray-700">
                     <div class="bg-orange-900 bg-opacity-20 rounded-full w-14 h-14 md:w-16 md:h-16 flex items-center justify-center mb-5 md:mb-6">
                         <i class="fas fa-rocket text-orange-500 text-xl md:text-2xl"></i>
@@ -292,7 +275,6 @@
         </div>
     </section>
 
-    <!-- Siti Web Section -->
     <section id="siti-web" class="py-16 md:py-20 bg-gray-900">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12 md:mb-16">
@@ -341,7 +323,6 @@
         </div>
     </section>
 
-    <!-- Sviluppo Software Section -->
     <section id="sviluppo" class="py-16 md:py-20 bg-gray-800">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12 md:mb-16">
@@ -405,7 +386,6 @@
         </div>
     </section>
 
-    <!-- About Me Section -->
     <section id="about" class="py-16 md:py-20 bg-gray-900">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12 md:mb-16">
@@ -415,14 +395,7 @@
             
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/3 mb-10 md:mb-0">
-                    <!-- Profile Image Container -->
                     <div class="bg-gradient-to-br from-orange-500 to-orange-600 rounded-full w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96 mx-auto flex items-center justify-center shadow-xl profile-image">
-                        <!-- 
-                            PER SOSTITUIRE CON LA TUA FOTO:
-                            1. Rimuovi il tag SVG qui sotto
-                            2. Inserisci un tag <img> come questo:
-                            <img src="percorso-alla-tua-foto.jpg" alt="NomeCognome" class="rounded-full">
-                        -->
                         <img src="./img/foto_profilo2.jpg" alt="FotoProfilo" class="rounded-full">
                     </div>
                 </div>
@@ -462,7 +435,6 @@
         </div>
     </section>
 
-    <!-- Contatti Section -->
     <section id="contatti" class="py-16 md:py-20 bg-gray-800">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12 md:mb-16">
@@ -476,18 +448,21 @@
                     <div class="text-center mb-8">
                         <h3 class="text-xl md:text-2xl font-bold text-white mb-4">Prenota una Consulenza Gratuita</h3>
                         <div class="bg-gray-800 rounded-lg p-4 md:p-6 mb-6 border border-gray-700">
-                            <p class="text-gray-300 mb-4 text-sm md:text-base">Inviami un'email per parlarmi del tuo progetto o problema. Ti risponderò entro 24 ore con un link ad una classe virtuale dove potremo discutere ogni dettaglio durante una <span class="font-bold text-orange-400">consulenza gratuita di 20 minuti</span>.</p>
+                            <p class="text-gray-300 mb-4 text-sm md:text-base">Inviami un messaggio per parlarmi del tuo progetto o problema. Ti risponderò entro 24 ore con un link ad una classe virtuale dove potremo discutere ogni dettaglio durante una <span class="font-bold text-orange-400">consulenza gratuita di 20 minuti</span>.</p>
                             <p class="text-gray-300 text-sm md:text-base">Questa è un'opportunità per conoscerci meglio e capire come posso aiutarti a raggiungere i tuoi obiettivi, sia che tu stia cercando di imparare a programmare, sviluppare un sito web o creare una soluzione software personalizzata.</p>
                         </div>
-                        <a href="mailto:dabihdev@gmail.com" class="bg-orange-500 text-white py-2 px-6 md:py-3 md:px-8 rounded-full hover:bg-orange-600 transition shadow-md inline-block text-sm md:text-base">
-                            <i class="fas fa-envelope mr-2"></i>Inviami un'Email
-                        </a>
+                        <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                            <a href="mailto:dabihdev@gmail.com" class="bg-orange-500 text-white py-2 px-6 md:py-3 md:px-8 rounded-full hover:bg-orange-600 transition shadow-md inline-block text-sm md:text-base">
+                                <i class="fas fa-envelope mr-2"></i>Inviami un'Email
+                            </a>
+                            <a href="https://wa.me/393716246580" target="_blank" class="bg-green-500 text-white py-2 px-6 md:py-3 md:px-8 rounded-full hover:bg-green-600 transition shadow-md inline-block text-sm md:text-base">
+                                <i class="fab fa-whatsapp mr-2"></i>Contattami su Whatsapp
+                            </a>
+                        </div>
                     </div>
                     
-                    <!-- INIZIO: Sezione contatti -->
-                    <div class="flex justify-center mt-10 md:mt-12">
-                        <!-- Email (attualmente visibile) -->
-                        <div class="bg-gray-800 rounded-lg p-4 md:p-6 shadow-sm text-center border border-gray-700 max-w-sm">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 justify-items-center mt-10 md:mt-12">
+                        <div class="bg-gray-800 rounded-lg p-4 md:p-6 shadow-sm text-center border border-gray-700 w-full max-w-sm">
                             <div class="bg-orange-900 bg-opacity-20 rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center mx-auto mb-3 md:mb-4">
                                 <i class="fas fa-envelope text-orange-500 text-xl md:text-2xl"></i>
                             </div>
@@ -495,85 +470,28 @@
                             <a href="mailto:dabihdev@gmail.com" class="text-orange-400 hover:underline text-sm md:text-base">dabihdev@gmail.com</a>
                         </div>
                         
-                        <!-- 
-                        COME AGGIUNGERE TELEFONO:
-                        Copia e incolla questo blocco di codice dopo il div dell'email qui sopra
-                        
-                        <div class="bg-gray-800 rounded-lg p-4 md:p-6 shadow-sm text-center border border-gray-700 max-w-sm mx-4">
-                            <div class="bg-orange-900 bg-opacity-20 rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center mx-auto mb-3 md:mb-4">
-                                <i class="fas fa-phone text-orange-500 text-xl md:text-2xl"></i>
+                        <div class="bg-gray-800 rounded-lg p-4 md:p-6 shadow-sm text-center border border-gray-700 w-full max-w-sm">
+                            <div class="bg-green-900 bg-opacity-20 rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center mx-auto mb-3 md:mb-4">
+                                <i class="fab fa-whatsapp text-green-500 text-xl md:text-2xl"></i>
                             </div>
-                            <h4 class="font-semibold text-white mb-2 text-base md:text-lg">Telefono</h4>
-                            <a href="tel:+391234567890" class="text-orange-400 hover:underline text-sm md:text-base">+39 123 456 7890</a>
+                            <h4 class="font-semibold text-white mb-2 text-base md:text-lg">WhatsApp</h4>
+                            <a href="https://wa.me/393716246580" target="_blank" class="text-green-400 hover:underline text-sm md:text-base">+39 371 624 6580</a>
                         </div>
-                        -->
-                        
-                        <!-- 
-                        COME AGGIUNGERE SEDE:
-                        Copia e incolla questo blocco di codice dopo il div dell'email (o del telefono se lo hai aggiunto)
-                        
-                        <div class="bg-gray-800 rounded-lg p-4 md:p-6 shadow-sm text-center border border-gray-700 max-w-sm">
-                            <div class="bg-orange-900 bg-opacity-20 rounded-full w-12 h-12 md:w-16 md:h-16 flex items-center justify-center mx-auto mb-3 md:mb-4">
-                                <i class="fas fa-map-marker-alt text-orange-500 text-xl md:text-2xl"></i>
-                            </div>
-                            <h4 class="font-semibold text-white mb-2 text-base md:text-lg">Sede</h4>
-                            <p class="text-gray-300 text-sm md:text-base">La tua città, Italia</p>
                         </div>
-                        -->
-                        
-                        <!-- NOTA: Quando aggiungi più elementi di contatto, modifica la classe del div contenitore da "flex justify-center" a "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 md:gap-6" -->
-                    </div>
-                    <!-- FINE: Sezione contatti -->
-                    
-                    <!-- INIZIO: Sezione social -->
                     <div class="mt-10 md:mt-12 text-center">
-                        <h4 class="font-semibold text-white mb-4 text-base md:text-lg">Seguimi su GitHub</h4>
+                        <h4 class="font-semibold text-white mb-4 text-base md:text-lg">Guarda i miei progetti open-source su GitHub!</h4>
                         <div class="flex justify-center">
-                            <!-- GitHub (attualmente visibile) -->
                             <a href="https://github.com/dabihdev" class="bg-gray-800 hover:bg-gray-700 text-orange-500 rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition border border-gray-700">
                                 <i class="fab fa-github text-lg md:text-xl"></i>
                             </a>
                             
-                            <!-- 
-                            COME AGGIUNGERE ALTRI SOCIAL:
-                            Copia e incolla uno di questi blocchi dopo l'icona di GitHub qui sopra
-                            
-                            LinkedIn:
-                            <a href="#" class="bg-gray-800 hover:bg-gray-700 text-orange-500 rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition border border-gray-700 ml-3 md:ml-4">
-                                <i class="fab fa-linkedin-in text-lg md:text-xl"></i>
-                            </a>
-                            
-                            Twitter:
-                            <a href="#" class="bg-gray-800 hover:bg-gray-700 text-orange-500 rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition border border-gray-700 ml-3 md:ml-4">
-                                <i class="fab fa-twitter text-lg md:text-xl"></i>
-                            </a>
-                            
-                            Instagram:
-                            <a href="#" class="bg-gray-800 hover:bg-gray-700 text-orange-500 rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition border border-gray-700 ml-3 md:ml-4">
-                                <i class="fab fa-instagram text-lg md:text-xl"></i>
-                            </a>
-                            
-                            YouTube:
-                            <a href="#" class="bg-gray-800 hover:bg-gray-700 text-orange-500 rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition border border-gray-700 ml-3 md:ml-4">
-                                <i class="fab fa-youtube text-lg md:text-xl"></i>
-                            </a>
-                            
-                            Medium:
-                            <a href="#" class="bg-gray-800 hover:bg-gray-700 text-orange-500 rounded-full w-10 h-10 md:w-12 md:h-12 flex items-center justify-center transition border border-gray-700 ml-3 md:ml-4">
-                                <i class="fab fa-medium-m text-lg md:text-xl"></i>
-                            </a>
-                            
-                            NOTA: Quando aggiungi più social, ricordati di cambiare anche il titolo da "Seguimi su GitHub" a "Seguimi sui Social"
-                            -->
-                        </div>
+                            </div>
                     </div>
-                    <!-- FINE: Sezione social -->
-                </div>
+                    </div>
             </div>
         </div>
     </section>
 
-    <!-- Privacy Policy Section -->
     <section id="privacy-policy" class="py-16 md:py-20 bg-gray-900">
         <div class="container mx-auto px-4">
             <div class="text-center mb-12 md:mb-16">
@@ -614,7 +532,6 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-gray-900 text-white py-10 md:py-12 border-t border-gray-800">
         <div class="container mx-auto px-4">
             <div class="flex flex-col md:flex-row justify-between">
@@ -643,60 +560,16 @@
                             <i class="fas fa-envelope mr-2 text-orange-500"></i>
                             <span class="text-gray-400">dabihdev@gmail.com</span>
                         </li>
-                        <!-- 
-                        COME AGGIUNGERE TELEFONO NEL FOOTER:
-                        Copia e incolla questo blocco di codice dopo il li dell'email qui sopra
-                        
                         <li class="flex items-center">
-                            <i class="fas fa-phone mr-2 text-orange-500"></i>
-                            <span class="text-gray-400">+39 123 456 7890</span>
+                            <i class="fab fa-whatsapp mr-2 text-green-500"></i>
+                            <span class="text-gray-400">+39 371 624 6580</span>
                         </li>
-                        -->
-                        
-                        <!-- 
-                        COME AGGIUNGERE SEDE NEL FOOTER:
-                        Copia e incolla questo blocco di codice dopo il li dell'email (o del telefono se lo hai aggiunto)
-                        
-                        <li class="flex items-center">
-                            <i class="fas fa-map-marker-alt mr-2 text-orange-500"></i>
-                            <span class="text-gray-400">La tua città, Italia</span>
-                        </li>
-                        -->
                     </ul>
                     <div class="flex mt-4">
                         <a href="https://github.com/dabihdev" class="text-gray-400 hover:text-orange-400 transition">
                             <i class="fab fa-github mr-2"></i>GitHub
                         </a>
-                        <!-- 
-                        COME AGGIUNGERE ALTRI SOCIAL NEL FOOTER:
-                        Copia e incolla uno di questi blocchi dopo il link di GitHub qui sopra
-                        
-                        LinkedIn:
-                        <a href="#" class="text-gray-400 hover:text-orange-400 transition ml-4">
-                            <i class="fab fa-linkedin-in mr-2"></i>LinkedIn
-                        </a>
-                        
-                        Twitter:
-                        <a href="#" class="text-gray-400 hover:text-orange-400 transition ml-4">
-                            <i class="fab fa-twitter mr-2"></i>Twitter
-                        </a>
-                        
-                        Instagram:
-                        <a href="#" class="text-gray-400 hover:text-orange-400 transition ml-4">
-                            <i class="fab fa-instagram mr-2"></i>Instagram
-                        </a>
-                        
-                        YouTube:
-                        <a href="#" class="text-gray-400 hover:text-orange-400 transition ml-4">
-                            <i class="fab fa-youtube mr-2"></i>YouTube
-                        </a>
-                        
-                        Medium:
-                        <a href="#" class="text-gray-400 hover:text-orange-400 transition ml-4">
-                            <i class="fab fa-medium-m mr-2"></i>Medium
-                        </a>
-                        -->
-                    </div>
+                        </div>
                 </div>
             </div>
             
